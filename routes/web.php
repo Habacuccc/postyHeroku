@@ -13,6 +13,10 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/', function () {
+    return redirect('home');
+});
+
 Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.post');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
