@@ -20,7 +20,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-6">
                         <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Post</button>
                     </div>
 
@@ -30,8 +30,13 @@
             @if($posts->count())
                 @foreach ($posts as $post)
                     
+                <div class="mb-2">
+                    
+                    <div class="bg-gray-50 border-2 w-full p-4 rounded-lg">
                     <x-post :post="$post" />
-
+                    <a href="{{ route('posts.show', $post) }}" class="font-bold" target="_blank"> View post </a> 
+                    </div>
+                </div>
                 @endforeach
 
                 {{ $posts->links() }}
